@@ -1,5 +1,6 @@
 import random
 import cv2
+from matplotlib import pyplot as plt
 
 #CURRENT SITUATION 
     #Giving same true letter more than one cause issue 
@@ -40,6 +41,10 @@ storeIndex = []
 #cv2.imshow("head",img) 
 #cv2.waitKey()
 
+#imgHead = plt.imread("hangmanImages/1head.png")
+#plt.imshow(imgHead)
+
+
 for i in range(len(selectedWord)):
     guessWord+='_'
 
@@ -64,11 +69,13 @@ while (selectedWord != guessWord) and (numberOfGuess>0) :
         drawFlag = 1 
 
         if(numberOfGuess==6):
-            imgHead = cv2.imread("hangmanImages/1head.png", cv2.IMREAD_ANYCOLOR)
+            imgHead = cv2.imread("hangmanImages/1head.png", cv2.IMREAD_ANYCOLOR) 
             cv2.imshow("head",imgHead)
             cv2.waitKey(0)
             cv2.destroyAllWindows()
             cv2.waitKey(1)
+            #imgHead = plt.imread("hangmanImages/1head.png")
+            #plt.imshow(imgHead)
 
         elif(numberOfGuess==5):
             imgBody = cv2.imread("hangmanImages/2body.png", cv2.IMREAD_ANYCOLOR)
@@ -97,7 +104,7 @@ while (selectedWord != guessWord) and (numberOfGuess>0) :
             cv2.destroyAllWindows()
             cv2.waitKey(1)
         elif(numberOfGuess==1):
-            imgColumn = cv2.imread("hangmanImages/6columng.png", cv2.IMREAD_ANYCOLOR)
+            imgColumn = cv2.imread("hangmanImages/6column.png", cv2.IMREAD_ANYCOLOR)
             cv2.imshow("column",imgColumn)
             cv2.waitKey(0)
             cv2.destroyAllWindows()
@@ -108,6 +115,7 @@ while (selectedWord != guessWord) and (numberOfGuess>0) :
             cv2.waitKey(0)
             cv2.destroyAllWindows()
             cv2.waitKey(1)
+            print("YOU DIED")
     #if(drawFlag==1):
     #    drawFlag = 0
 
