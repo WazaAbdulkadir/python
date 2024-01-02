@@ -3,8 +3,9 @@ import cv2
 from matplotlib import pyplot as plt
 
 #CURRENT SITUATION 
-    #Giving same true letter more than one cause issue 
-    #Underscores with spaces need to be displayed instead of letters 
+    #Giving same true letter more than one cause issue - solved
+    #Underscores with spaces need to be displayed instead of letters -solved underscores displayed each time
+
 wordArray = ['apple','car','banana']
 #print(wordArray[2])
 
@@ -63,7 +64,7 @@ while (selectedWord != guessWord) and (numberOfGuess>0) :
     guessLetter = input()
     print('\n')
 
-        # Checking if the guessed letter is not in the selected word
+    # Checking if the guessed letter is not in the selected word
     if guessLetter not in selectedWord:
         numberOfGuess -= 1
         print(f'Incorrect! You have {numberOfGuess} guesses left.\n')
@@ -134,6 +135,12 @@ while (selectedWord != guessWord) and (numberOfGuess>0) :
     storeIndex.clear()
     #print("You found this much of the word:" + copyWord)
 
+if (guessWord==selectedWord):
+    print("!!!!Well done your guess is correct!!!!")
+
+if (numberOfGuess==0):
+    print("You couldn't find the word it was:" + selectedWord)
+
 '''
     if not(guessLetter in selectedWord):
         numberOfGuess-=1
@@ -191,8 +198,3 @@ while (selectedWord != guessWord) and (numberOfGuess>0) :
 '''
 
     
-if (guessWord==selectedWord):
-    print("!!!!Well done your guess is correct!!!!")
-
-if (numberOfGuess==0):
-    print("You couldn't find the word it was:" + selectedWord)
