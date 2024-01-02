@@ -1,6 +1,8 @@
 import random
 import cv2
 
+# this code produced by chatgpt after I gave my code to it and request to give me better and clear code:
+
 # List of words for the game
 wordArray = ['apple', 'car', 'banana']
 
