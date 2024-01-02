@@ -63,59 +63,21 @@ while (selectedWord != guessWord) and (numberOfGuess>0) :
     guessLetter = input()
     print('\n')
 
-    if not(guessLetter in selectedWord):
-        numberOfGuess-=1
-        print(f'You can have {numberOfGuess} more guess')
-        drawFlag = 1 
+        # Checking if the guessed letter is not in the selected word
+    if guessLetter not in selectedWord:
+        numberOfGuess -= 1
+        print(f'Incorrect! You have {numberOfGuess} guesses left.\n')
 
-        if(numberOfGuess==6):
-            imgHead = cv2.imread("hangmanImages/1head.png", cv2.IMREAD_ANYCOLOR) 
-            cv2.imshow("head",imgHead)
-            cv2.waitKey(0)
-            cv2.destroyAllWindows()
-            cv2.waitKey(1)
-            #imgHead = plt.imread("hangmanImages/1head.png")
-            #plt.imshow(imgHead)
+        # Displaying hangman images based on the number of guesses left
+        img = cv2.imread(f"hangmanImages/{7 - numberOfGuess}.png", cv2.IMREAD_ANYCOLOR)
+        cv2.imshow("Hangman", img)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
+        cv2.waitKey(1)
 
-        elif(numberOfGuess==5):
-            imgBody = cv2.imread("hangmanImages/2body.png", cv2.IMREAD_ANYCOLOR)
-            cv2.imshow("body",imgBody)
-            cv2.waitKey(0)
-            cv2.destroyAllWindows()
-            cv2.waitKey(1)
-            
-        elif(numberOfGuess==4):
-            imgArmLeg = cv2.imread("hangmanImages/3armleg.png", cv2.IMREAD_ANYCOLOR)
-            cv2.imshow("arm and leg",imgArmLeg)
-            cv2.waitKey(0)
-            cv2.destroyAllWindows()
-            cv2.waitKey(1)
-        elif(numberOfGuess==3):
-            imgRope = cv2.imread("hangmanImages/4rope.png", cv2.IMREAD_ANYCOLOR)
-            cv2.imshow("rope",imgRope)
-            cv2.waitKey(0)
-            cv2.destroyAllWindows()
-            cv2.waitKey(1)
-
-        elif(numberOfGuess==2):
-            imgceil = cv2.imread("hangmanImages/5ceil.png", cv2.IMREAD_ANYCOLOR)
-            cv2.imshow("ceil",imgceil)
-            cv2.waitKey(0)
-            cv2.destroyAllWindows()
-            cv2.waitKey(1)
-        elif(numberOfGuess==1):
-            imgColumn = cv2.imread("hangmanImages/6column.png", cv2.IMREAD_ANYCOLOR)
-            cv2.imshow("column",imgColumn)
-            cv2.waitKey(0)
-            cv2.destroyAllWindows()
-            cv2.waitKey(1)
-        elif(numberOfGuess==0):
-            imgBase = cv2.imread("hangmanImages/7base.png", cv2.IMREAD_ANYCOLOR)
-            cv2.imshow("base",imgBase)
-            cv2.waitKey(0)
-            cv2.destroyAllWindows()
-            cv2.waitKey(1)
-            print("YOU DIED")
+    # Checking if the guessed letter has already been guessed before
+    elif guessLetter in storeLetter:
+        print("You've already guessed this letter. Try a different one.\n")
     #if(drawFlag==1):
     #    drawFlag = 0
 
@@ -171,6 +133,62 @@ while (selectedWord != guessWord) and (numberOfGuess>0) :
     #storeLetter.clear()
     storeIndex.clear()
     #print("You found this much of the word:" + copyWord)
+
+'''
+    if not(guessLetter in selectedWord):
+        numberOfGuess-=1
+        print(f'You can have {numberOfGuess} more guess')
+        drawFlag = 1 
+
+        if(numberOfGuess==6):
+            imgHead = cv2.imread("hangmanImages/1.png", cv2.IMREAD_ANYCOLOR) 
+            cv2.imshow("head",imgHead)
+            cv2.waitKey(0)
+            cv2.destroyAllWindows()
+            cv2.waitKey(1)
+            #imgHead = plt.imread("hangmanImages/1head.png")
+            #plt.imshow(imgHead)
+
+        elif(numberOfGuess==5):
+            imgBody = cv2.imread("hangmanImages/2.png", cv2.IMREAD_ANYCOLOR)
+            cv2.imshow("body",imgBody)
+            cv2.waitKey(0)
+            cv2.destroyAllWindows()
+            cv2.waitKey(1)
+            
+        elif(numberOfGuess==4):
+            imgArmLeg = cv2.imread("hangmanImages/3.png", cv2.IMREAD_ANYCOLOR)
+            cv2.imshow("arm and leg",imgArmLeg)
+            cv2.waitKey(0)
+            cv2.destroyAllWindows()
+            cv2.waitKey(1)
+        elif(numberOfGuess==3):
+            imgRope = cv2.imread("hangmanImages/4.png", cv2.IMREAD_ANYCOLOR)
+            cv2.imshow("rope",imgRope)
+            cv2.waitKey(0)
+            cv2.destroyAllWindows()
+            cv2.waitKey(1)
+
+        elif(numberOfGuess==2):
+            imgceil = cv2.imread("hangmanImages/5.png", cv2.IMREAD_ANYCOLOR)
+            cv2.imshow("ceil",imgceil)
+            cv2.waitKey(0)
+            cv2.destroyAllWindows()
+            cv2.waitKey(1)
+        elif(numberOfGuess==1):
+            imgColumn = cv2.imread("hangmanImages/6.png", cv2.IMREAD_ANYCOLOR)
+            cv2.imshow("column",imgColumn)
+            cv2.waitKey(0)
+            cv2.destroyAllWindows()
+            cv2.waitKey(1)
+        elif(numberOfGuess==0):
+            imgBase = cv2.imread("hangmanImages/7.png", cv2.IMREAD_ANYCOLOR)
+            cv2.imshow("base",imgBase)
+            cv2.waitKey(0)
+            cv2.destroyAllWindows()
+            cv2.waitKey(1)
+            print("YOU DIED")
+'''
 
     
 if (guessWord==selectedWord):
